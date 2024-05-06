@@ -39,10 +39,10 @@ resize_h = 500
 
 def find_banknote_contour(image):
     for _ in range(10):  # 尝试10次
-        print(f'Retry {_}times wait for 1s....')
+        print(f'Retry {_} times wait for 1s....')
         time.sleep(1)
         try:
-            opencamera()  # find_banknote_contour() 找不到範圍會retry開啟camera再讀一次
+            opencamera()  # find_banknote_contour() 找不到範圍會retry camera
             
             gray = cv.cvtColor(image, cv.COLOR_BGR2GRAY)
             gray_gluss = cv.GaussianBlur(gray,(5,5),0)
@@ -135,7 +135,13 @@ if roi is not None:
     if best_template_index is not None:
         recognized_denomination = denominations[best_template_index]
         print(f"Recognized denomination: {recognized_denomination}")
+        #GPIO HERE 
+        #GPIO(1,OUTPUT) BLABLABLA
+
+
     else:
-        print("Failed to find best template.")
+        print("你可能是假鈔的受害者.JPG.")
+        #失敗則吐鈔票 IO 給馬達 OR WHAT?
+
 else:
-    print("Failed to find banknote contour.")
+    print("抓取不到紙鈔邊框.")
