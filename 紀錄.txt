@@ -1,0 +1,32 @@
+original image & template image 解析度必須要處理為500x500 否則會match不到
+ 
+要將第一段處理的圖像resize 為500x500後再進行match
+
+add git push pull 
+
+git remote add origin "htpps:xxxxxxx"
+git add . 
+
+git push -u origin master
+test 
+
+
+目標:
+1.優化進程速度與可讀性
+2.新增debug位置
+3.將opencamera執行流程為如果find_banknote_contour return失敗 在回到開啟camera
+4.修正score判斷語句 不能用最大值去找 要設定threshold值否則法辨別假鈔
+5.優化讀取imread template 範本的語句 
+6.放入樹梅派GPIO操作 
+
+
+
+100元紙鈔結果
+Denomination: 100, Score: 63.22222222222222
+Denomination: 100, Score: 54.86666666666667
+Denomination: 500, Score: 59.484848484848484
+Denomination: 500, Score: 60.607142857142854
+Denomination: 1000, Score: 59.48275862068966
+Denomination: 1000, Score: 64.68
+
+Recognized denomination: 100
